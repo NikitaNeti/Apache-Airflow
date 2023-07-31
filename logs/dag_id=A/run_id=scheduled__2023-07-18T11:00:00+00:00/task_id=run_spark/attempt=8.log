@@ -1,0 +1,27 @@
+[2023-07-20T16:10:35.010+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: A.run_spark scheduled__2023-07-18T11:00:00+00:00 [queued]>
+[2023-07-20T16:10:35.017+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: A.run_spark scheduled__2023-07-18T11:00:00+00:00 [queued]>
+[2023-07-20T16:10:35.017+0530] {taskinstance.py:1308} INFO - Starting attempt 8 of 9
+[2023-07-20T16:10:35.096+0530] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): run_spark> on 2023-07-18 11:00:00+00:00
+[2023-07-20T16:10:35.100+0530] {standard_task_runner.py:57} INFO - Started process 244463 to run task
+[2023-07-20T16:10:35.107+0530] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'A', 'run_spark', 'scheduled__2023-07-18T11:00:00+00:00', '--job-id', '436', '--raw', '--subdir', 'DAGS_FOLDER/assignment21.py', '--cfg-path', '/tmp/tmphb3jrz2d']
+[2023-07-20T16:10:35.109+0530] {standard_task_runner.py:85} INFO - Job 436: Subtask run_spark
+[2023-07-20T16:10:35.181+0530] {task_command.py:410} INFO - Running <TaskInstance: A.run_spark scheduled__2023-07-18T11:00:00+00:00 [running]> on host neosoft-Latitude-E5270
+[2023-07-20T16:10:35.250+0530] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Nikita' AIRFLOW_CTX_DAG_ID='A' AIRFLOW_CTX_TASK_ID='run_spark' AIRFLOW_CTX_EXECUTION_DATE='2023-07-18T11:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='8' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-18T11:00:00+00:00'
+[2023-07-20T16:10:35.252+0530] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-07-20T16:10:35.252+0530] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master local[*] /home/neosoft/airflow/dags/pyspark1.py']
+[2023-07-20T16:10:35.259+0530] {subprocess.py:86} INFO - Output:
+[2023-07-20T16:10:37.609+0530] {subprocess.py:93} INFO - 23/07/20 16:10:37 WARN Utils: Your hostname, neosoft-Latitude-E5270 resolves to a loopback address: 127.0.1.1; using 10.0.28.108 instead (on interface enp0s31f6)
+[2023-07-20T16:10:37.613+0530] {subprocess.py:93} INFO - 23/07/20 16:10:37 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2023-07-20T16:10:38.215+0530] {subprocess.py:93} INFO - python3: can't open file '/home/neosoft/airflow/dags/pyspark1.py': [Errno 2] No such file or directory
+[2023-07-20T16:10:38.227+0530] {subprocess.py:93} INFO - 23/07/20 16:10:38 INFO ShutdownHookManager: Shutdown hook called
+[2023-07-20T16:10:38.228+0530] {subprocess.py:93} INFO - 23/07/20 16:10:38 INFO ShutdownHookManager: Deleting directory /tmp/spark-d06eda6d-7ec3-47fc-a4f1-2e8a7cebaa16
+[2023-07-20T16:10:38.278+0530] {subprocess.py:97} INFO - Command exited with return code 2
+[2023-07-20T16:10:38.286+0530] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2023-07-20T16:10:38.289+0530] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=A, task_id=run_spark, execution_date=20230718T110000, start_date=20230720T104035, end_date=20230720T104038
+[2023-07-20T16:10:38.316+0530] {standard_task_runner.py:104} ERROR - Failed to execute job 436 for task run_spark (Bash command failed. The command returned a non-zero exit code 2.; 244463)
+[2023-07-20T16:10:38.329+0530] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-20T16:10:38.351+0530] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

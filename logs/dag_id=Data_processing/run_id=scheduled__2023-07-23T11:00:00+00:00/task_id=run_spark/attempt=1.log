@@ -1,0 +1,137 @@
+[2023-07-25T11:56:27.533+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Data_processing.run_spark scheduled__2023-07-23T11:00:00+00:00 [queued]>
+[2023-07-25T11:56:27.542+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Data_processing.run_spark scheduled__2023-07-23T11:00:00+00:00 [queued]>
+[2023-07-25T11:56:27.542+0530] {taskinstance.py:1308} INFO - Starting attempt 1 of 3
+[2023-07-25T11:56:27.568+0530] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): run_spark> on 2023-07-23 11:00:00+00:00
+[2023-07-25T11:56:27.571+0530] {standard_task_runner.py:57} INFO - Started process 33485 to run task
+[2023-07-25T11:56:27.574+0530] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'Data_processing', 'run_spark', 'scheduled__2023-07-23T11:00:00+00:00', '--job-id', '474', '--raw', '--subdir', 'DAGS_FOLDER/assignment2.py', '--cfg-path', '/tmp/tmpqbfdizdh']
+[2023-07-25T11:56:27.575+0530] {standard_task_runner.py:85} INFO - Job 474: Subtask run_spark
+[2023-07-25T11:56:27.639+0530] {task_command.py:410} INFO - Running <TaskInstance: Data_processing.run_spark scheduled__2023-07-23T11:00:00+00:00 [running]> on host neosoft-Latitude-E5270
+[2023-07-25T11:56:27.758+0530] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='nikitaneti21@gmail.com' AIRFLOW_CTX_DAG_OWNER='Nikita' AIRFLOW_CTX_DAG_ID='Data_processing' AIRFLOW_CTX_TASK_ID='run_spark' AIRFLOW_CTX_EXECUTION_DATE='2023-07-23T11:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-23T11:00:00+00:00'
+[2023-07-25T11:56:27.761+0530] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-07-25T11:56:27.781+0530] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master local   --jars /home/neosoft/Videos/mysql-connector-j-8.0.33.jar   /home/neosoft/airflow/dags/pyspark2.py ']
+[2023-07-25T11:56:27.820+0530] {subprocess.py:86} INFO - Output:
+[2023-07-25T11:56:30.166+0530] {subprocess.py:93} INFO - 23/07/25 11:56:30 WARN Utils: Your hostname, neosoft-Latitude-E5270 resolves to a loopback address: 127.0.1.1; using 10.0.28.108 instead (on interface enp0s31f6)
+[2023-07-25T11:56:30.170+0530] {subprocess.py:93} INFO - 23/07/25 11:56:30 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2023-07-25T11:56:30.708+0530] {subprocess.py:93} INFO - 23/07/25 11:56:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2023-07-25T11:56:31.675+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SparkContext: Running Spark version 3.4.0
+[2023-07-25T11:56:31.716+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceUtils: ==============================================================
+[2023-07-25T11:56:31.716+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2023-07-25T11:56:31.717+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceUtils: ==============================================================
+[2023-07-25T11:56:31.718+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SparkContext: Submitted application: pyspark2.py
+[2023-07-25T11:56:31.748+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2023-07-25T11:56:31.763+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceProfile: Limiting resource is cpu
+[2023-07-25T11:56:31.764+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2023-07-25T11:56:31.847+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SecurityManager: Changing view acls to: neosoft
+[2023-07-25T11:56:31.848+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SecurityManager: Changing modify acls to: neosoft
+[2023-07-25T11:56:31.850+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SecurityManager: Changing view acls groups to:
+[2023-07-25T11:56:31.851+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SecurityManager: Changing modify acls groups to:
+[2023-07-25T11:56:31.852+0530] {subprocess.py:93} INFO - 23/07/25 11:56:31 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: neosoft; groups with view permissions: EMPTY; users with modify permissions: neosoft; groups with modify permissions: EMPTY
+[2023-07-25T11:56:32.193+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Utils: Successfully started service 'sparkDriver' on port 32857.
+[2023-07-25T11:56:32.227+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO SparkEnv: Registering MapOutputTracker
+[2023-07-25T11:56:32.270+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO SparkEnv: Registering BlockManagerMaster
+[2023-07-25T11:56:32.301+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2023-07-25T11:56:32.302+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2023-07-25T11:56:32.307+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2023-07-25T11:56:32.334+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-30b52b13-2edd-415a-8068-892f1585e79a
+[2023-07-25T11:56:32.354+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2023-07-25T11:56:32.376+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO SparkEnv: Registering OutputCommitCoordinator
+[2023-07-25T11:56:32.586+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2023-07-25T11:56:32.665+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2023-07-25T11:56:32.718+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO SparkContext: Added JAR file:///home/neosoft/Videos/mysql-connector-j-8.0.33.jar at spark://10.0.28.108:32857/jars/mysql-connector-j-8.0.33.jar with timestamp 1690266391663
+[2023-07-25T11:56:32.800+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Executor: Starting executor ID driver on host 10.0.28.108
+[2023-07-25T11:56:32.808+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2023-07-25T11:56:32.829+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Executor: Fetching spark://10.0.28.108:32857/jars/mysql-connector-j-8.0.33.jar with timestamp 1690266391663
+[2023-07-25T11:56:32.889+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO TransportClientFactory: Successfully created connection to /10.0.28.108:32857 after 34 ms (0 ms spent in bootstraps)
+[2023-07-25T11:56:32.901+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Utils: Fetching spark://10.0.28.108:32857/jars/mysql-connector-j-8.0.33.jar to /tmp/spark-08261ef6-f2a9-425e-96bc-6429d42fbdfb/userFiles-32813a56-6af6-49d5-bf0a-dfbcc2c24806/fetchFileTemp5298977978339132974.tmp
+[2023-07-25T11:56:32.962+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Executor: Adding file:/tmp/spark-08261ef6-f2a9-425e-96bc-6429d42fbdfb/userFiles-32813a56-6af6-49d5-bf0a-dfbcc2c24806/mysql-connector-j-8.0.33.jar to class loader
+[2023-07-25T11:56:32.974+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38111.
+[2023-07-25T11:56:32.983+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO NettyBlockTransferService: Server created on 10.0.28.108:38111
+[2023-07-25T11:56:32.986+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2023-07-25T11:56:32.997+0530] {subprocess.py:93} INFO - 23/07/25 11:56:32 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.0.28.108, 38111, None)
+[2023-07-25T11:56:33.002+0530] {subprocess.py:93} INFO - 23/07/25 11:56:33 INFO BlockManagerMasterEndpoint: Registering block manager 10.0.28.108:38111 with 434.4 MiB RAM, BlockManagerId(driver, 10.0.28.108, 38111, None)
+[2023-07-25T11:56:33.005+0530] {subprocess.py:93} INFO - 23/07/25 11:56:33 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.0.28.108, 38111, None)
+[2023-07-25T11:56:33.007+0530] {subprocess.py:93} INFO - 23/07/25 11:56:33 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.0.28.108, 38111, None)
+[2023-07-25T11:56:33.476+0530] {subprocess.py:93} INFO - 23/07/25 11:56:33 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2023-07-25T11:56:33.478+0530] {subprocess.py:93} INFO - 23/07/25 11:56:33 INFO SharedState: Warehouse path is 'file:/tmp/airflowtmpden59zsb/spark-warehouse'.
+[2023-07-25T11:56:38.871+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO CodeGenerator: Code generated in 275.240213 ms
+[2023-07-25T11:56:38.972+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2023-07-25T11:56:38.995+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO DAGScheduler: Got job 0 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2023-07-25T11:56:38.995+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO DAGScheduler: Final stage: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0)
+[2023-07-25T11:56:38.996+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO DAGScheduler: Parents of final stage: List()
+[2023-07-25T11:56:38.998+0530] {subprocess.py:93} INFO - 23/07/25 11:56:38 INFO DAGScheduler: Missing parents: List()
+[2023-07-25T11:56:39.003+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-07-25T11:56:39.170+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 11.9 KiB, free 434.4 MiB)
+[2023-07-25T11:56:39.225+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 6.0 KiB, free 434.4 MiB)
+[2023-07-25T11:56:39.229+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.0.28.108:38111 (size: 6.0 KiB, free: 434.4 MiB)
+[2023-07-25T11:56:39.234+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1535
+[2023-07-25T11:56:39.252+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2023-07-25T11:56:39.253+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2023-07-25T11:56:39.326+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.0.28.108, executor driver, partition 0, PROCESS_LOCAL, 7209 bytes)
+[2023-07-25T11:56:39.348+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2023-07-25T11:56:39.471+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO JDBCRDD: closed connection
+[2023-07-25T11:56:39.489+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1802 bytes result sent to driver
+[2023-07-25T11:56:39.501+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 189 ms on 10.0.28.108 (executor driver) (1/1)
+[2023-07-25T11:56:39.503+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2023-07-25T11:56:39.513+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0) finished in 0.492 s
+[2023-07-25T11:56:39.519+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2023-07-25T11:56:39.520+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2023-07-25T11:56:39.523+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Job 0 finished: showString at NativeMethodAccessorImpl.java:0, took 0.550202 s
+[2023-07-25T11:56:39.591+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO CodeGenerator: Code generated in 32.909865 ms
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - |customer_id|first_name|last_name|age|country|
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - |          1|      John|      Doe| 31|    USA|
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - |          2|    Robert|     luna| 22|    USA|
+[2023-07-25T11:56:39.602+0530] {subprocess.py:93} INFO - |          3|     David|  Robison| 22|     UK|
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - |          4|      jOhn|Reinhardt| 25|     UK|
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - |          5|     James|     Bond| 48|    USA|
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - |          6|    Nikita|     Neti| 24|  India|
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - 
+[2023-07-25T11:56:39.603+0530] {subprocess.py:93} INFO - None
+[2023-07-25T11:56:39.794+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2023-07-25T11:56:39.795+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Got job 1 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2023-07-25T11:56:39.795+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Final stage: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0)
+[2023-07-25T11:56:39.796+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Parents of final stage: List()
+[2023-07-25T11:56:39.796+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Missing parents: List()
+[2023-07-25T11:56:39.797+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[5] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2023-07-25T11:56:39.803+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 12.0 KiB, free 434.4 MiB)
+[2023-07-25T11:56:39.808+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.0 KiB, free 434.4 MiB)
+[2023-07-25T11:56:39.809+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.0.28.108:38111 (size: 6.0 KiB, free: 434.4 MiB)
+[2023-07-25T11:56:39.810+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1535
+[2023-07-25T11:56:39.811+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[5] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2023-07-25T11:56:39.812+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+[2023-07-25T11:56:39.815+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (10.0.28.108, executor driver, partition 0, PROCESS_LOCAL, 7209 bytes)
+[2023-07-25T11:56:39.815+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+[2023-07-25T11:56:39.847+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO JDBCRDD: closed connection
+[2023-07-25T11:56:39.853+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1613 bytes result sent to driver
+[2023-07-25T11:56:39.855+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 42 ms on 10.0.28.108 (executor driver) (1/1)
+[2023-07-25T11:56:39.858+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0) finished in 0.058 s
+[2023-07-25T11:56:39.858+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+[2023-07-25T11:56:39.858+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2023-07-25T11:56:39.859+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+[2023-07-25T11:56:39.859+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO DAGScheduler: Job 1 finished: showString at NativeMethodAccessorImpl.java:0, took 0.064189 s
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - |customer_id|first_name|last_name|age|country|
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - |          1|      John|      Doe| 31|    USA|
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - |          5|     James|     Bond| 48|    USA|
+[2023-07-25T11:56:39.869+0530] {subprocess.py:93} INFO - +-----------+----------+---------+---+-------+
+[2023-07-25T11:56:39.870+0530] {subprocess.py:93} INFO - 
+[2023-07-25T11:56:39.870+0530] {subprocess.py:93} INFO - None
+[2023-07-25T11:56:39.871+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2023-07-25T11:56:39.884+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkUI: Stopped Spark web UI at http://10.0.28.108:4040
+[2023-07-25T11:56:39.904+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2023-07-25T11:56:39.913+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO MemoryStore: MemoryStore cleared
+[2023-07-25T11:56:39.913+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO BlockManager: BlockManager stopped
+[2023-07-25T11:56:39.920+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2023-07-25T11:56:39.923+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2023-07-25T11:56:39.930+0530] {subprocess.py:93} INFO - 23/07/25 11:56:39 INFO SparkContext: Successfully stopped SparkContext
+[2023-07-25T11:56:40.367+0530] {subprocess.py:93} INFO - 23/07/25 11:56:40 INFO ShutdownHookManager: Shutdown hook called
+[2023-07-25T11:56:40.368+0530] {subprocess.py:93} INFO - 23/07/25 11:56:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-08261ef6-f2a9-425e-96bc-6429d42fbdfb
+[2023-07-25T11:56:40.371+0530] {subprocess.py:93} INFO - 23/07/25 11:56:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-8bdcd190-7d33-432a-8191-913b3fabf4ca
+[2023-07-25T11:56:40.374+0530] {subprocess.py:93} INFO - 23/07/25 11:56:40 INFO ShutdownHookManager: Deleting directory /tmp/spark-08261ef6-f2a9-425e-96bc-6429d42fbdfb/pyspark-864eb8a3-2c28-44d6-8f38-277e5f07e1d2
+[2023-07-25T11:56:40.429+0530] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-07-25T11:56:40.512+0530] {taskinstance.py:1345} INFO - Marking task as SUCCESS. dag_id=Data_processing, task_id=run_spark, execution_date=20230723T110000, start_date=20230725T062627, end_date=20230725T062640
+[2023-07-25T11:56:40.571+0530] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-25T11:56:40.596+0530] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

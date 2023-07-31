@@ -1,0 +1,103 @@
+[2023-07-03T15:59:24.351+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_data_processing.run_spark scheduled__2023-07-01T08:00:00+00:00 [queued]>
+[2023-07-03T15:59:24.357+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_data_processing.run_spark scheduled__2023-07-01T08:00:00+00:00 [queued]>
+[2023-07-03T15:59:24.357+0530] {taskinstance.py:1308} INFO - Starting attempt 2 of 3
+[2023-07-03T15:59:24.387+0530] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): run_spark> on 2023-07-01 08:00:00+00:00
+[2023-07-03T15:59:24.391+0530] {standard_task_runner.py:57} INFO - Started process 149318 to run task
+[2023-07-03T15:59:24.397+0530] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'spark_data_processing', 'run_spark', 'scheduled__2023-07-01T08:00:00+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/assignment2.py', '--cfg-path', '/tmp/tmpfg1j9mrj']
+[2023-07-03T15:59:24.398+0530] {standard_task_runner.py:85} INFO - Job 104: Subtask run_spark
+[2023-07-03T15:59:24.466+0530] {task_command.py:410} INFO - Running <TaskInstance: spark_data_processing.run_spark scheduled__2023-07-01T08:00:00+00:00 [running]> on host neosoft-Latitude-E5270
+[2023-07-03T15:59:24.524+0530] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='nikitaneti21@gmail.com' AIRFLOW_CTX_DAG_OWNER='Nikita' AIRFLOW_CTX_DAG_ID='spark_data_processing' AIRFLOW_CTX_TASK_ID='run_spark' AIRFLOW_CTX_EXECUTION_DATE='2023-07-01T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-01T08:00:00+00:00'
+[2023-07-03T15:59:24.526+0530] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-07-03T15:59:24.526+0530] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\nspark-submit --master local[*] //home/neosoft/Documents/Assignment_airflow/Untitled.ipynb']
+[2023-07-03T15:59:24.533+0530] {subprocess.py:86} INFO - Output:
+[2023-07-03T15:59:27.881+0530] {subprocess.py:93} INFO - 23/07/03 15:59:27 WARN Utils: Your hostname, neosoft-Latitude-E5270 resolves to a loopback address: 127.0.1.1; using 10.0.29.173 instead (on interface enp0s31f6)
+[2023-07-03T15:59:27.884+0530] {subprocess.py:93} INFO - 23/07/03 15:59:27 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2023-07-03T15:59:28.522+0530] {subprocess.py:93} INFO - 23/07/03 15:59:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2023-07-03T15:59:28.729+0530] {subprocess.py:93} INFO - Exception in thread "main" org.apache.spark.SparkException: Failed to get main class in JAR with error 'null'.  Please specify one with --class.
+[2023-07-03T15:59:28.729+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.error(SparkSubmit.scala:1038)
+[2023-07-03T15:59:28.729+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:524)
+[2023-07-03T15:59:28.729+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:955)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:192)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:215)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1111)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1120)
+[2023-07-03T15:59:28.730+0530] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2023-07-03T15:59:28.816+0530] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-07-03T15:59:28.838+0530] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-07-03T15:59:28.847+0530] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=spark_data_processing, task_id=run_spark, execution_date=20230701T080000, start_date=20230703T102924, end_date=20230703T102928
+[2023-07-03T15:59:28.904+0530] {logging_mixin.py:149} WARNING - /home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py:152 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2023-07-03T15:59:28.904+0530] {configuration.py:674} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-07-03T15:59:28.905+0530] {email.py:268} INFO - Email alerting: attempt 1
+[2023-07-03T15:59:28.911+0530] {configuration.py:674} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-07-03T15:59:28.911+0530] {email.py:268} INFO - Email alerting: attempt 1
+[2023-07-03T15:59:28.912+0530] {taskinstance.py:1889} ERROR - Failed to send email to: ['nikitaneti21@gmail.com']
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1407, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1558, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1628, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2295, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 78, in send_email
+    return backend(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 152, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 270, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1887, in handle_failure
+    self.email_alert(error, task)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2297, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 78, in send_email
+    return backend(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 152, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 270, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2023-07-03T15:59:28.952+0530] {standard_task_runner.py:104} ERROR - Failed to execute job 104 for task run_spark (Bash command failed. The command returned a non-zero exit code 1.; 149318)
+[2023-07-03T15:59:28.987+0530] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-03T15:59:29.029+0530] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

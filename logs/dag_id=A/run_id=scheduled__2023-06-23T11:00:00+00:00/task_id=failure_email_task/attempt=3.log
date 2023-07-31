@@ -1,0 +1,38 @@
+[2023-07-04T13:05:03.019+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: A.failure_email_task scheduled__2023-06-23T11:00:00+00:00 [queued]>
+[2023-07-04T13:05:03.025+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: A.failure_email_task scheduled__2023-06-23T11:00:00+00:00 [queued]>
+[2023-07-04T13:05:03.025+0530] {taskinstance.py:1308} INFO - Starting attempt 3 of 3
+[2023-07-04T13:05:03.096+0530] {taskinstance.py:1327} INFO - Executing <Task(EmailOperator): failure_email_task> on 2023-06-23 11:00:00+00:00
+[2023-07-04T13:05:03.100+0530] {standard_task_runner.py:57} INFO - Started process 141052 to run task
+[2023-07-04T13:05:03.105+0530] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'A', 'failure_email_task', 'scheduled__2023-06-23T11:00:00+00:00', '--job-id', '386', '--raw', '--subdir', 'DAGS_FOLDER/assignment21.py', '--cfg-path', '/tmp/tmpr4zjhldk']
+[2023-07-04T13:05:03.106+0530] {standard_task_runner.py:85} INFO - Job 386: Subtask failure_email_task
+[2023-07-04T13:05:03.168+0530] {task_command.py:410} INFO - Running <TaskInstance: A.failure_email_task scheduled__2023-06-23T11:00:00+00:00 [running]> on host neosoft-Latitude-E5270
+[2023-07-04T13:05:03.228+0530] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Nikita' AIRFLOW_CTX_DAG_ID='A' AIRFLOW_CTX_TASK_ID='failure_email_task' AIRFLOW_CTX_EXECUTION_DATE='2023-06-23T11:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-23T11:00:00+00:00'
+[2023-07-04T13:05:03.239+0530] {logging_mixin.py:149} WARNING - /home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py:152 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2023-07-04T13:05:03.240+0530] {email.py:268} INFO - Email alerting: attempt 1
+[2023-07-04T13:05:03.241+0530] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/email.py", line 77, in execute
+    send_email(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 78, in send_email
+    return backend(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 152, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 270, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2023-07-04T13:05:03.244+0530] {taskinstance.py:1345} INFO - Marking task as FAILED. dag_id=A, task_id=failure_email_task, execution_date=20230623T110000, start_date=20230704T073503, end_date=20230704T073503
+[2023-07-04T13:05:03.322+0530] {standard_task_runner.py:104} ERROR - Failed to execute job 386 for task failure_email_task ([Errno 111] Connection refused; 141052)
+[2023-07-04T13:05:03.357+0530] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-04T13:05:03.380+0530] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

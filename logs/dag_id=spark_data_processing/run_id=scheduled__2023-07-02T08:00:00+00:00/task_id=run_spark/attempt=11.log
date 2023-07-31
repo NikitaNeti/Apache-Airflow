@@ -1,0 +1,181 @@
+[2023-07-04T12:10:24.840+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_data_processing.run_spark scheduled__2023-07-02T08:00:00+00:00 [queued]>
+[2023-07-04T12:10:24.846+0530] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_data_processing.run_spark scheduled__2023-07-02T08:00:00+00:00 [queued]>
+[2023-07-04T12:10:24.847+0530] {taskinstance.py:1308} INFO - Starting attempt 11 of 13
+[2023-07-04T12:10:24.874+0530] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): run_spark> on 2023-07-02 08:00:00+00:00
+[2023-07-04T12:10:24.876+0530] {standard_task_runner.py:57} INFO - Started process 85966 to run task
+[2023-07-04T12:10:24.880+0530] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'spark_data_processing', 'run_spark', 'scheduled__2023-07-02T08:00:00+00:00', '--job-id', '159', '--raw', '--subdir', 'DAGS_FOLDER/assignment2.py', '--cfg-path', '/tmp/tmpppy2g6ce']
+[2023-07-04T12:10:24.880+0530] {standard_task_runner.py:85} INFO - Job 159: Subtask run_spark
+[2023-07-04T12:10:24.927+0530] {task_command.py:410} INFO - Running <TaskInstance: spark_data_processing.run_spark scheduled__2023-07-02T08:00:00+00:00 [running]> on host neosoft-Latitude-E5270
+[2023-07-04T12:10:25.052+0530] {taskinstance.py:1545} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='nikitaneti21@gmail.com' AIRFLOW_CTX_DAG_OWNER='Nikita' AIRFLOW_CTX_DAG_ID='spark_data_processing' AIRFLOW_CTX_TASK_ID='run_spark' AIRFLOW_CTX_EXECUTION_DATE='2023-07-02T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='11' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-02T08:00:00+00:00'
+[2023-07-04T12:10:25.054+0530] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-07-04T12:10:25.055+0530] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\nspark-submit --master local --jars //home/neosoft/Documents/Assignment_airflow/pyspark1.py']
+[2023-07-04T12:10:25.062+0530] {subprocess.py:86} INFO - Output:
+[2023-07-04T12:10:25.413+0530] {subprocess.py:93} INFO - Error: Missing application resource.
+[2023-07-04T12:10:25.413+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.973+0530] {subprocess.py:93} INFO - Usage: spark-submit [options] <app jar | python file | R file> [app arguments]
+[2023-07-04T12:10:26.973+0530] {subprocess.py:93} INFO - Usage: spark-submit --kill [submission ID] --master [spark://...]
+[2023-07-04T12:10:26.973+0530] {subprocess.py:93} INFO - Usage: spark-submit --status [submission ID] --master [spark://...]
+[2023-07-04T12:10:26.973+0530] {subprocess.py:93} INFO - Usage: spark-submit run-example [options] example-class [example args]
+[2023-07-04T12:10:26.977+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.977+0530] {subprocess.py:93} INFO - Options:
+[2023-07-04T12:10:26.977+0530] {subprocess.py:93} INFO -   --master MASTER_URL         spark://host:port, mesos://host:port, yarn,
+[2023-07-04T12:10:26.977+0530] {subprocess.py:93} INFO -                               k8s://https://host:port, or local (Default: local[*]).
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -   --deploy-mode DEPLOY_MODE   Whether to launch the driver program locally ("client") or
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -                               on one of the worker machines inside the cluster ("cluster")
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -                               (Default: client).
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -   --class CLASS_NAME          Your application's main class (for Java / Scala apps).
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -   --name NAME                 A name of your application.
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -   --jars JARS                 Comma-separated list of jars to include on the driver
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -                               and executor classpaths.
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -   --packages                  Comma-separated list of maven coordinates of jars to include
+[2023-07-04T12:10:26.978+0530] {subprocess.py:93} INFO -                               on the driver and executor classpaths. Will search the local
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               maven repo, then maven central and any additional remote
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               repositories given by --repositories. The format for the
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               coordinates should be groupId:artifactId:version.
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -   --exclude-packages          Comma-separated list of groupId:artifactId, to exclude while
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               resolving the dependencies provided in --packages to avoid
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               dependency conflicts.
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -   --repositories              Comma-separated list of additional remote repositories to
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -                               search for the maven coordinates given with --packages.
+[2023-07-04T12:10:26.979+0530] {subprocess.py:93} INFO -   --py-files PY_FILES         Comma-separated list of .zip, .egg, or .py files to place
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -                               on the PYTHONPATH for Python apps.
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -   --files FILES               Comma-separated list of files to be placed in the working
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -                               directory of each executor. File paths of these files
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -                               in executors can be accessed via SparkFiles.get(fileName).
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -   --archives ARCHIVES         Comma-separated list of archives to be extracted into the
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -                               working directory of each executor.
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -   --conf, -c PROP=VALUE       Arbitrary Spark configuration property.
+[2023-07-04T12:10:26.980+0530] {subprocess.py:93} INFO -   --properties-file FILE      Path to a file from which to load extra properties. If not
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -                               specified, this will look for conf/spark-defaults.conf.
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -   --driver-memory MEM         Memory for driver (e.g. 1000M, 2G) (Default: 1024M).
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -   --driver-java-options       Extra Java options to pass to the driver.
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -   --driver-library-path       Extra library path entries to pass to the driver.
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -   --driver-class-path         Extra class path entries to pass to the driver. Note that
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -                               jars added with --jars are automatically included in the
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO -                               classpath.
+[2023-07-04T12:10:26.981+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -   --executor-memory MEM       Memory per executor (e.g. 1000M, 2G) (Default: 1G).
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -   --proxy-user NAME           User to impersonate when submitting the application.
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -                               This argument does not work with --principal / --keytab.
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -   --help, -h                  Show this help message and exit.
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -   --verbose, -v               Print additional debug output.
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO -   --version,                  Print the version of current Spark.
+[2023-07-04T12:10:26.982+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -  Spark Connect only:
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -    --remote CONNECT_URL       URL to connect to the server for Spark Connect, e.g.,
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -                               sc://host:port. --master and --deploy-mode cannot be set
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -                               together with this option. This option is experimental, and
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -                               might change between minor releases.
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -  Cluster deploy mode only:
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -   --driver-cores NUM          Number of cores used by the driver, only in cluster mode
+[2023-07-04T12:10:26.983+0530] {subprocess.py:93} INFO -                               (Default: 1).
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO -  Spark standalone or Mesos with cluster deploy mode only:
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO -   --supervise                 If given, restarts the driver on failure.
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO -  Spark standalone, Mesos or K8s with cluster deploy mode only:
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO -   --kill SUBMISSION_ID        If given, kills the driver specified.
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO -   --status SUBMISSION_ID      If given, requests the status of the driver specified.
+[2023-07-04T12:10:26.984+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -  Spark standalone, Mesos and Kubernetes only:
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -   --total-executor-cores NUM  Total cores for all executors.
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -  Spark standalone, YARN and Kubernetes only:
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -   --executor-cores NUM        Number of cores used by each executor. (Default: 1 in
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -                               YARN and K8S modes, or all available cores on the worker
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO -                               in standalone mode).
+[2023-07-04T12:10:26.985+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -  Spark on YARN and Kubernetes only:
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -   --num-executors NUM         Number of executors to launch (Default: 2).
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -                               If dynamic allocation is enabled, the initial number of
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -                               executors will be at least NUM.
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -   --principal PRINCIPAL       Principal to be used to login to KDC.
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -   --keytab KEYTAB             The full path to the file that contains the keytab for the
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -                               principal specified above.
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:26.986+0530] {subprocess.py:93} INFO -  Spark on YARN only:
+[2023-07-04T12:10:26.987+0530] {subprocess.py:93} INFO -   --queue QUEUE_NAME          The YARN queue to submit to (Default: "default").
+[2023-07-04T12:10:26.987+0530] {subprocess.py:93} INFO - 
+[2023-07-04T12:10:27.020+0530] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-07-04T12:10:27.034+0530] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-07-04T12:10:27.039+0530] {taskinstance.py:1345} INFO - Marking task as UP_FOR_RETRY. dag_id=spark_data_processing, task_id=run_spark, execution_date=20230702T080000, start_date=20230704T064024, end_date=20230704T064027
+[2023-07-04T12:10:27.070+0530] {logging_mixin.py:149} WARNING - /home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py:152 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2023-07-04T12:10:27.070+0530] {configuration.py:674} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-07-04T12:10:27.070+0530] {email.py:268} INFO - Email alerting: attempt 1
+[2023-07-04T12:10:27.075+0530] {configuration.py:674} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-07-04T12:10:27.075+0530] {email.py:268} INFO - Email alerting: attempt 1
+[2023-07-04T12:10:27.076+0530] {taskinstance.py:1889} ERROR - Failed to send email to: ['nikitaneti21@gmail.com']
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1407, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1558, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1628, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2295, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 78, in send_email
+    return backend(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 152, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 270, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1887, in handle_failure
+    self.email_alert(error, task)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2297, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 78, in send_email
+    return backend(
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 152, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 270, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/neosoft/airflow/py_env/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2023-07-04T12:10:27.109+0530] {standard_task_runner.py:104} ERROR - Failed to execute job 159 for task run_spark (Bash command failed. The command returned a non-zero exit code 1.; 85966)
+[2023-07-04T12:10:27.145+0530] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-04T12:10:27.229+0530] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
